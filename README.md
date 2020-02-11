@@ -1,4 +1,4 @@
-# # Drugstore
+# Drugstore
 
 Ejemplo de farmacias de turno en la región metropolitana
 
