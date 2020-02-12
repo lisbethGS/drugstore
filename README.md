@@ -37,7 +37,7 @@ https://docs.docker.com/installation/#installation
 Construir imagen
 
 ```
-docker build --build-arg JAR_FILE=build/libs/*.jar -t springio/drugstore .
+docker build -t springio/drugstore .
 ```
 
 Ejecutar imagen
