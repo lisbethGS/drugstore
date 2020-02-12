@@ -24,7 +24,7 @@ public class DrugstoreServiceImpl implements DrugstoreService {
 
 		List<Drugstore> result = apiResponse.stream()
 				.filter(x -> !StringUtils.isEmpty(x.getComuna_nombre()) && !StringUtils.isEmpty(x.getLocal_nombre())
-						&& x.getComuna_nombre().toUpperCase().contains(locationName.toUpperCase()) 
+						&& (x.getComuna_nombre()).equalsIgnoreCase(locationName)
 						&& x.getLocal_nombre().toUpperCase().contains(drugstoreName.toUpperCase()))
 				.map(temp -> {
 					Drugstore obj = new Drugstore();
