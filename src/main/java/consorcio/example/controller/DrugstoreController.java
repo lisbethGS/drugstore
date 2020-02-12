@@ -18,7 +18,7 @@ public class DrugstoreController {
 	@Autowired
 	DrugstoreService service;
 
-	@GetMapping("/drugstoreTest")
+	@GetMapping("/drugstore")
 	public List<Drugstore> drugstores(@RequestParam(required = true, value = "locationName") String locationName, @RequestParam(required = true,value = "drugstoreName") String drugstoreName) {
 		return service.getDrugstoreByLocation(locationName, drugstoreName);
 	}
