@@ -4,10 +4,15 @@ Ejemplo de farmacias de turno en la región metropolitana
 
 ## Pre-requisitos
 
-Java 8
-Gradle 6.1.1
+Java 8 +
+```
+https://www.oracle.com/technetwork/java/javase/downloads/index.html
+```
 
-### Ejecución local
+gradle 6 + 
+```
+https://gradle.org/install/
+```
 
 Clonar proyecto
 
@@ -21,23 +26,42 @@ Ir al directorio del proyecto
 cd drugstore
 ```
 
-Construir proyecto
+## Ejecutar a través de Docker
+
+Instalar Docker 
 
 ```
-gradle build
+https://docs.docker.com/installation/#installation
 ```
 
-Ejecutar proyeto
+Construir imagen
 
 ```
-gradle bootRun
+docker build --build-arg JAR_FILE=build/libs/*.jar -t springio/drugstore .
+```
+
+Ejecutar imagen
+```
+docker run -p 8080:8080 -t springio/drugstore
 ```
 
 
-## Prueba local
+## Contrucción y ejecución local
 
-Probar a tráves de algún cliente rest o utilizando comando
+Ejecutar
+```
+./gradlew build && java -jar build/libs/drugstore-0.0.1.jar
+```
 
+### Prueba local
+
+Ejecutar en navegador
+
+```
+http://localhost:8080/drugstore?locationName=BUIN&drugstoreName=AHUMADA
+```
+
+Ejecutar en terminal 
 ```
 curl -X GET 'http://localhost:8080/drugstoreTest?locationName=BUIN&drugstoreName=AHUMADA'
 ```
