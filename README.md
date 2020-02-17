@@ -65,3 +65,15 @@ Ejecutar en terminal
 ```
 curl -X GET 'http://localhost:8080/drugstoreTest?locationName=BUIN&drugstoreName=AHUMADA'
 ```
+### Interfaz gráfica
+
+Ir al directorio frontApp
+
+```
+cd frontApp
+```
+
+Seguir las instrucciones
+```
+https://github.com/lisbethGS/drugstore/tree/master/frontApp
+```
