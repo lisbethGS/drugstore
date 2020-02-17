@@ -1,13 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 import DrugstoreList from '../DrugstoreList/DrugstoreList.js'
+import './../../App.css';
 
 
 export default class Drugstore extends React.Component {
   state = {
     locationName: '',
     drugstoreName: '',
-    drugstores:[]
+    drugstores: []
   }
 
   handleChangeLocation = event => {
@@ -28,22 +29,26 @@ export default class Drugstore extends React.Component {
 
   render() {
     let result;
-    if (this.state.drugstores.length>0) {
-      result =<DrugstoreList drugstores={this.state.drugstores} />;
+    if (this.state.drugstores.length > 0) {
+      result = <DrugstoreList drugstores={this.state.drugstores} />;
       console.log(result);
     }
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Comuna:
-            <input type="text" name="id" onChange={this.handleChangeLocation} />
-          </label>
-          <label>
-            Farmacia:
-            <input type="text" name="id" onChange={this.handleChangeLocationDrugstore} />
-          </label>
-          <button type="submit">Buscar</button>
+
+        <form class="contentForm" onSubmit={this.handleSubmit}>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Comuna:
+            <input className="form-control" type="text" name="id" onChange={this.handleChangeLocation} />
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Farmacia:
+            <input className="form-control" type="text" name="id" onChange={this.handleChangeLocationDrugstore} />
+            </label>
+
+          </div>
+          <button className="btn btn-primary" type="submit">Buscar</button>
         </form>
         {result}
       </div>

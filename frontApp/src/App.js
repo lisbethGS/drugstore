@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Drugstore from './components/DrugstoreForm/Drugstore'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
