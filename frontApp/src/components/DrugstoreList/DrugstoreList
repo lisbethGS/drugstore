@@ -8,7 +8,7 @@ export default class DrugstoreList extends React.Component {
   render() {
     return (
       <ul>
-        { this.state.drugstores.map(drugstore => <li>{drugstore.name}</li>)}
+        { this.props.drugstores.map(drugstore => <li>{drugstore.NombreLocal}</li>)}
       </ul>
     )
   }

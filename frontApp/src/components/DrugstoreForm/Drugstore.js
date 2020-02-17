@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-
+import DrugstoreList from '../DrugstoreForm/Drugstore'
 
 export default class Drugstore extends React.Component {
   state = {
@@ -20,8 +20,9 @@ export default class Drugstore extends React.Component {
     event.preventDefault();
     axios.get(`/drugstore?locationName=${this.state.locationName}&drugstoreName=${this.state.drugstoreName}`)
       .then(res => {
-        console.log(res);
-        console.log(res.data);
+        this.setState({
+          drugstores: res.data
+        });
       })
   }
 
@@ -38,7 +39,7 @@ export default class Drugstore extends React.Component {
             <input type="text" name="id" onChange={this.handleChangeLocationDrugstore} />
           </label>
           <button type="submit">Buscar</button>
-          
+          {this.state.drugstores ? <DrugstoreList drugstores={this.state.drugstores} /> : null}
         </form>
       </div>
     )
