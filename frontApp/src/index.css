@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+th, td {
+  padding: 5px;
+  text-align: left;    
+}
+
+#divConteiner{
+  display: flex;
+  max-width: 100%;
+}
+
+.drugConteiner{
+  border: 1px solid #cccccc;
+  margin: 5px;
+}

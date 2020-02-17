@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import DrugstoreList from '../DrugstoreList/DrugstoreList.js'
 
 
 export default class Drugstore extends React.Component {
@@ -20,12 +21,17 @@ export default class Drugstore extends React.Component {
     event.preventDefault();
     axios.get(`/drugstore?locationName=${this.state.locationName}&drugstoreName=${this.state.drugstoreName}`)
       .then(res => {
-        console.log(res);
-        console.log(res.data);
+        const drugstores = res.data;
+        this.setState({ drugstores });
       })
   }
 
   render() {
+    let result;
+    if (this.state.drugstores.length>0) {
+      result =<DrugstoreList drugstores={this.state.drugstores} />;
+      console.log(result);
+    }
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -38,8 +44,8 @@ export default class Drugstore extends React.Component {
             <input type="text" name="id" onChange={this.handleChangeLocationDrugstore} />
           </label>
           <button type="submit">Buscar</button>
-          
         </form>
+        {result}
       </div>
     )
   }
